@@ -140,10 +140,10 @@ function add_slide_banner(){
     global $con;
     if(isset($_POST['add_slide_banner'])){
         $filename = rand(1,999999)."-".$_FILES['slide_banner']['name'];
-        echo $filename;
+        
         // echo $filename;
         move_uploaded_file($_FILES['slide_banner']['tmp_name'],"../article/assets/image/".$filename);
-        $sql_add = "INSERT INTO `tbl_slide` VALUES (null,'".$filename."')";
+        $sql_add = "INSERT INTO `tbl_slide` VALUES('".$filename."')";
         $result_add = $con->query($sql_add);
         if($result_add == TRUE){
             echo '
