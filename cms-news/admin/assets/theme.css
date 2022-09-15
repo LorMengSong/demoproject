@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo&display=swap');
+
+:root {
+    --blue-color   : #064489;
+    --red-color    : #e81c28;
+    --gray-color   : #eeeeee;
+    --white-color  : #ffffff;
+    --black-color  : #071629;
+    --yellow-color : #eaca00;
+}
+
+body {
+    font-family: 'Exo', sans-serif !important;
+    background-color: var(--gray-color);
+}
+
+.login .wrap-login .box ,
+.login .wrap-login .btn-wrap button
+{
+    -webkit-transition: all 0.3s !important;
+    -moz-transition: all 0.3s !important;
+    -ms-transition: all 0.3s !important;
+    -o-transition: all 0.3s !important;
+    transition: all 0.3s !important;
+}
+
+.login {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login .wrap-login {
+    width: 300px;
+    padding: 30px 15px;
+    background-color: var(--white-color);
+}
+
+.login .wrap-login .title {
+    text-align: center;
+    color: var(--red-color);
+    font-weight: bold;
+}
+
+.login .wrap-login form {
+    padding: 15px;
+}
+
+.login .wrap-login .label {
+    margin-bottom: 5px;
+    color: var(--blue-color);
+    font-weight: bold;
+}
+
+.login .wrap-login .box {
+    width: -webkit-fill-available;
+    height: 40px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+.login .wrap-login .box:focus-visible {
+    padding-left: 20px;
+    outline: none;
+}
+
+.login .wrap-login .btn-wrap {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login .wrap-login .btn-wrap button {
+    padding: 10px 15px;
+    border: none;
+    color: var(--white  -color);
+    background-color: var(--red-color);
+    box-shadow: 0 8px 6px rgb(0 0 0 / 20%);
+}
+
+.login .wrap-login .btn-wrap button:hover {
+    cursor: pointer;
+    background-color: var(--blue-color);
+}
+
+.nav-sidebar .nav-link {
+    border-radius: 0;
+    background-color: var(--blue-color) !important;
+}
+
+.card-primary.card-outline {
+    border-top: 3px solid var(--yellow-color);
+}
+
+.card-header h2 {
+    font-weight: bold;
+    color: var(--blue-color);
+    margin: 0;
+}
+
+.card-header h5 {
+    color: var(--blue-color) !important;
+}
+
+.card-footer .btn-primary {
+    border: none;
+    border-radius: 0;
+    background-color: var(--blue-color);
+}
+
+.nav-sidebar .nav-link p {
+    font-size: 14px;
+}
+
+.content-header h4 {
+    font-weight: bold;
+    color: var(--blue-color);
+}
+
+.btn {
+    border: none;
+    border-radius: 0;
+    font-size: 12px;
+}
+
+#TableView {
+    font-size: 14px;
+}
+
+.user-panel .image {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+}

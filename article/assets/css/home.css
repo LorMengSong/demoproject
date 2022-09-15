@@ -1,0 +1,94 @@
+.home .main-slide-banner .slick-arrow {
+    display: none !important;
+}
+
+.home .main-slide-banner img ,
+.main-banner img {
+    width: 100%;
+}
+
+.home .animation-text marquee {
+    font-weight: bold;
+    font-size: 24px;
+    color: var(--blue-color);
+    text-shadow: 4px 4px 4px #6c757d;
+}
+
+.home .top-wrap {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.home .top-wrap .title {
+    margin: 0;
+    font-weight: bold;
+    color: var(--red-color);
+    border-bottom: 4px dashed var(--blue-color);
+}
+
+.home .top-wrap a {
+    color: var(--gray-color);
+    background-color: var(--red-color);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-weight: bold;
+    box-shadow: 0 8px 6px rgb(0 0 0 / 20%)
+}
+
+.home .top-wrap a:hover {
+    text-decoration: none;
+    color: var(--red-color);
+    background-color: var(--blue-color);
+}
+
+.home .bottom-wrap figure {
+    box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+}
+
+.home .bottom-wrap a:hover {
+    text-decoration: none;
+}
+
+.home .bottom-wrap .title {
+    font-size: 16px;
+    color: var(--blue-color);
+    line-height: 1.6;
+    font-weight: bold;
+}
+
+.home .bottom-wrap .title:hover {
+    color: var(--red-color);
+}
+
+.home .bottom-wrap .date {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--red-color);
+}
+
+.home .bottom-wrap .description {
+    color: var(--black-color);
+    line-height: 1.6;
+}
+
+.home .bottom-wrap .detail {
+    padding: 10px;
+}
+
+.home .bottom-wrap .border {
+    margin: 5px 0;
+}
+
+.home .bottom-wrap .fa-play-circle {
+    position: absolute;
+    top: 30%;
+    left: 43%;
+    font-size: 35px;
+    color: var(--red-color);
+}
+
+.home .bottom-wrap .fa-play-circle:hover {
+    color: var(--blue-color);
+}
