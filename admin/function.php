@@ -85,4 +85,54 @@ function add_social_media(){
     }
 }
 add_social_media();
+// @update_social_media
+function update_social_media(){
+    global $con;
+    if(isset($_POST['update_social_media'])){
+        $id = $_POST['id'];
+        $filename = rand(1,999999)."-".$_FILES['thumbnail']['name'];
+        // echo $filename;
+        move_uploaded_file($_FILES['thumbnail']['tmp_name'],"../article/assets/image/".$filename);
+        $url = $_POST['url'];
+        $sql_update = "UPDATE `tbl_social_logo` SET `thumbnail`='".$filename."',`url`='".$url."' WHERE id=$id ";
+        $result_update = $con->query($sql_update);
+        if($result_update == TRUE){
+            echo '
+            <script>
+            $(document).ready(function() {
+                swal({
+                    title: "UPDATE SUCCESSFULLY!",
+                    text: "You clicked the button!",
+                    icon: "success",
+                });
+            });
+        </script>
+            ';
+        }
+    }
+}
+update_social_media();
+// @remove_social_media
+function remove_social_media(){
+    global $con;
+    if(isset($_POST['remove_social_media'])){
+        $id = $_POST['id'];
+        $sql_delete = "DELETE FROM `tbl_social_logo` WHERE id=$id";
+        $result_delete = $con->query($sql_delete);
+        if($result_delete == TRUE){
+            echo '
+            <script>
+            $(document).ready(function() {
+                swal({
+                    title: "DELETE SUCCESSFULLY!",
+                    text: "You clicked the button!",
+                    icon: "success",
+                });
+            });
+        </script>
+            ';
+        }
+    }
+}
+remove_social_media();
 ?>

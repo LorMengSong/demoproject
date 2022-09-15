@@ -1,6 +1,10 @@
 <?php 
   include('header.php');
   include('sidebar.php');
+  $id = $_GET['id'];
+  $sql_select = "SELECT * FROM `tbl_social_logo` WHERE id = $id ";
+  $result_select = $con->query($sql_select);
+  $row = mysqli_fetch_assoc($result_select);
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -30,22 +34,22 @@
               </div>
               <div class="card-body">
                 <form method="post" enctype="multipart/form-data">
-                   
+
                         <div class="card-body">
-                            <input type="hidden" value="" name="id">
+                            <input type="hidden" value="<?php echo $row['id']; ?>" name="id">
                             <div class="form-group">
                                 <label>Post Thumbnail</label> <small class="text-danger">( Recommend image size 35 x 35 pixel )</small>
-                                <img src="https://via.placeholder.com/35x35">
+                                <img src="../article/assets/image/<?php echo $row['thumbnail'] ?>">
                                 <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="thumbnail" >
+                                    <input type="file" class="custom-file-input" name="thumbnail">
                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                 </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Post URL</label>
-                                <input type="text" name="url" class="form-control" value="" placeholder="News Title">
+                                <input type="text" value="<?php echo $row['url']; ?>" name="url" class="form-control" value="" placeholder="News Title">
                             </div>
                         </div>
                     

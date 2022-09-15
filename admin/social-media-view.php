@@ -50,7 +50,8 @@
                                   '.$row['url'].'
                               </td>
                               <td>
-                                <a href="social-media-update.php" class="btn btn-success">Edit</a> <a href="social-media-delete.php" class="btn btn-danger">Remove</a>
+                                <a href="social-media-update.php?id='.$row['id'].'" class="btn btn-success">Edit</a> 
+                                <a href="social-media-delete.php?id='.$row['id'].'" class="btn btn-danger">Remove</a>
                               </td>
                             </tr>
                             ';

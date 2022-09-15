@@ -1,6 +1,7 @@
 <?php 
   include('header.php');
   include('sidebar.php');
+  $id = $_GET['id'];
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -29,24 +30,17 @@
               </div>
                 <div class="card-body">
                 <form method="post" enctype="multipart/form-data">
-                    <?php 
-                        $id = $_GET['id'];
-                        $sql_select = " SELECT * FROM `tbl_social` WHERE id = $id ";
-                        $result_select = $con->query($sql_select);
-                        while($row = mysqli_fetch_assoc($result_select)) {
-                          $id         = $row['id'];
-                    ?>
+                    
                     <div class="card-body">
                         <input type="hidden" value="<?php echo $id; ?>" name="id">
-                    <span>Are you sure to remove post id = <?php echo $_GET['id']; ?>?</span>
+                    <span>Are you sure to remove post id = <?php echo $id; ?></span>
                     </div>
-                    <?php
-                        }
-                    ?>
+                   
+                
                     <!-- /.card-body -->
                     <div class="card-footer">
                       <button type="submit" name="remove_social_media" class="btn btn-danger">Remove Post</button>
-                      <a href="<?= "http://" . $_SERVER['SERVER_NAME'] ?>/cms-news/admin/social-media-view.php" class="btn btn-primary">Back to view Post</a>
+                      <a href="social-media-view.php" class="btn btn-primary">Back to view Post</a>
                     </div>
                   </form>
                 </div>
