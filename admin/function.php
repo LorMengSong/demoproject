@@ -143,7 +143,7 @@ function add_slide_banner(){
         
         // echo $filename;
         move_uploaded_file($_FILES['slide_banner']['tmp_name'],"../article/assets/image/".$filename);
-        $sql_add = "INSERT INTO `tbl_slide` VALUES('".$filename."')";
+        $sql_add = "INSERT INTO `tbl_slide` VALUES(null,'".$filename."')";
         $result_add = $con->query($sql_add);
         if($result_add == TRUE){
             echo '
@@ -161,4 +161,27 @@ function add_slide_banner(){
     }
 }
 add_slide_banner();
+// @remove_slide_banner
+function remove_slide_banner(){
+    global $con;
+    if(isset($_POST['remove_slide_banner'])){
+        $id = $_POST['id'];
+        $sql_delete = "DELETE FROM `tbl_slide` WHERE id=$id";
+        $result_delete = $con->query($sql_delete);
+        if($result_delete == TRUE){
+            echo '
+            <script>
+                $(document).ready(function() {
+                    swal({
+                        title: "DELETE SUCCESSFULLY!",
+                        text: "You clicked the button!",
+                        icon: "success",
+                    });
+                });
+            </script>
+            ';
+        }
+    }
+}
+remove_slide_banner();
 ?>

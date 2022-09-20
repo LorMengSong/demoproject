@@ -7,9 +7,19 @@
         <!-- @slide -->
         <section>
             <div class="main-slide-banner">
-                <div>
-                    <img src="https://via.placeholder.com/1440x500" alt="">
-                </div>
+                <?php
+                    $sql_select = "SELECT * FROM `tbl_slide` ORDER BY id DESC";
+                    $result_select = $con->query($sql_select);
+                    while($row = mysqli_fetch_assoc($result_select)){
+                        echo '
+                        <div>
+                            <img src="assets/image/'.$row['thumbnail'].'" alt="">
+                        </div>
+                        ';
+                    }
+                
+                ?>
+                
             </div>
         </section>
  

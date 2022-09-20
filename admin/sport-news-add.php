@@ -36,10 +36,6 @@
                             <input type="text" name="title" class="form-control" placeholder="News Title">
                         </div>
                         <div class="form-group">
-                            <label>Post Date</label>
-                            <input type="date" name="date" class="form-control" placeholder="News Title">
-                        </div>
-                        <div class="form-group">
                             <label>Post Thumbnail</label> <small class="text-danger">( Recommend image size 255 x 200 pixel )</small>
                             <div class="input-group">
                             <div class="custom-file">
@@ -60,15 +56,16 @@
                         <div class="form-group">
                             <label>News Type</label> <small class="text-danger">( National / International News )</small>
                             <select class="form-control" name="post_type">
-                                <option value="national">National</option>
-                                <option value="international">International</option>
+                                <option value="SPORT" selected>SPORT</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Post Categories</label>
                             <select class="form-control" name="category">
-                                <option value="football">Football</option>
-                                <option value="volleyball">Volleyball</option>
+                                <option value="NATIONAL">National</option>
+                                <option value="INTERNATIONAL">International</option>
+                                <option value="FOOTBALL">Football</option>
+                                <option value="VOLLEYBALL">Volleyball</option>
                             </select>
                         </div>
                         <div class="form-group">
