@@ -184,4 +184,45 @@ function remove_slide_banner(){
     }
 }
 remove_slide_banner();
+// @add_sport_news
+function add_sport_news(){
+    global $con;
+    if(isset($_POST['add_sport_news'])){
+        // set the default timezone to use. 
+        $con->set_charset("utf8");
+        date_default_timezone_set('Asia/Phnom_Penh');
+        $title= $_POST['title'];
+        $filename_thumbnail = rand(1,999999)."-".$_FILES['thumbnail']['name'];
+        
+        // echo $filename;
+        move_uploaded_file($_FILES['thumbnail']['tmp_name'],"../article/assets/image/".$filename_thumbnail);
+        $filename_banner = rand(1,999999)."-".$_FILES['banner']['name'];
+        
+        // echo $filename;
+        move_uploaded_file($_FILES['banner']['tmp_name'],"../article/assets/image/".$filename_banner);
+        $post_type = $_POST['post_type'];
+        $category = $_POST['category'];
+        $description = $_POST['description'];
+        $date = date("F j, Y, g:i a"); 
+        $sql_add = "INSERT INTO `tbl_social_news` (`id`, `thumbnail`, `banner`, `title`, `date`, `description`, `news_type`, `category`) 
+                                                VALUES (null,'".$filename_thumbnail."','".$filename_banner."','".$title."','".$date."','".$description."'
+                                                ,'".$post_type."','".$category."')";
+        $result_add = $con->query($sql_add);
+        if($result_add == TRUE){
+            echo '
+            <script>
+                $(document).ready(function() {
+                    swal({
+                        title: "INSERT SUCCESSFULLY!",
+                        text: "You clicked the button!",
+                        icon: "success",
+                    });
+                });
+            </script>
+            ';
+        }                                        
+        
+    }
+}
+add_sport_news();
 ?>

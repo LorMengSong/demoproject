@@ -42,18 +42,40 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>Messi vs Ronaldo</td>
-                        <td>External</td>
-                        <td>Football</td>
-                        <td>12-May-2021</td>
-                        <td><img src="https://via.placeholder.com/70x70"></td>
-                        <td><img src="https://via.placeholder.com/150x70"></td>
-                        <td>Messi vs Ronaldo ............................................</td>
-                        <td>
-                          <a href="sport-news-update.php" class="btn btn-success">Edit</a> <a href="" class="btn btn-danger">Remove</a>
-                        </td>
-                      </tr>
+                      <?php
+                          $con->set_charset("utf8");
+                          $sql_select = "SELECT * FROM `tbl_social_news` ORDER BY ID DESC";
+                          $result_select = $con->query($sql_select);
+                          while($row = mysqli_fetch_assoc($result_select)){
+                            echo '
+                            <tr>
+                              <td style="overflow: hidden;
+                                      line-hight: 40px;
+                                      text-overflow: ellipsis;
+                                      display: -webkit-box;
+                                      -webkit-line-clamp: 2; /* number of lines to show */
+                                      -webkit-box-orient: vertical;">
+                              '.$row['title'].'</td>
+                              <td>'.$row['news_type'].'</td>
+                              <td>'.$row['category'].'</td>
+                              <td>'.$row['category'].'</td>
+                              <td><img src="../article/assets/image/'.$row['thumbnail'].'" width="70px"></td>
+                              <td><img src="../article/assets/image/'.$row['banner'].'" width="150px"></td>
+                              <td style="overflow: hidden;
+                                      line-hight: 45px;
+                                      text-overflow: ellipsis;
+                                      display: -webkit-box;
+                                      -webkit-line-clamp: 2; /* number of lines to show */
+                                      -webkit-box-orient: vertical;">
+                                      '.$row['description'].'</td>
+                              <td>
+                                <a href="sport-news-update.php" class="btn btn-success">Edit</a> <a href="" class="btn btn-danger">Remove</a>
+                              </td>
+                            </tr>
+                            ';
+                          }
+                      ?>
+                      
                     </tbody>
                   </table>
                 </div>
