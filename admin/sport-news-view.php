@@ -50,6 +50,8 @@
                             echo '
                             <tr>
                               <td style="overflow: hidden;
+                                      width:112px;
+                                      height:75px;    
                                       line-hight: 40px;
                                       text-overflow: ellipsis;
                                       display: -webkit-box;
@@ -62,6 +64,8 @@
                               <td><img src="../article/assets/image/'.$row['thumbnail'].'" width="70px"></td>
                               <td><img src="../article/assets/image/'.$row['banner'].'" width="150px"></td>
                               <td style="overflow: hidden;
+                                      width:150px;
+                                      height:75px;
                                       line-hight: 45px;
                                       text-overflow: ellipsis;
                                       display: -webkit-box;
