@@ -1,6 +1,16 @@
 <?php 
   include('header.php');
   include('sidebar.php');
+  $con->set_charset("utf8");
+  $id = $_GET['id'];
+  $sql_select = "SELECT * FROM `tbl_social_news` WHERE id=$id";
+  $result_select = $con->query($sql_select);
+  $row = mysqli_fetch_assoc($result_select);
+  $title = $row['title'];
+  $news_type = $row['news_type'];
+  $category = $row['category'];
+  $description = $row['description'];
+
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -29,52 +39,88 @@
                 <h5 class="m-0 text-primary">Update Post</h5>
               </div>
               <div class="card-body">
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
                     <div class="card-body">
                         <div class="form-group">
+                            <input type="hidden" name="id" value="<?php echo $id; ?>" id="">
                             <label>News Title</label>
-                            <input type="text" class="form-control" placeholder="News Title">
+                            <input type="text" name="title" value="<?php echo $title; ?>" class="form-control" placeholder="News Title">
                         </div>
                         <div class="form-group">
-                            <label>Post Date</label>
-                            <input type="date" class="form-control" placeholder="News Title">
-                        </div>
-                        <div class="form-group">
-                            <label>Post Thumbnail</label> <small class="text-danger">( Recommend image size 300 x 300 pixel )</small>
+                            <label>Post Thumbnail</label> <small class="text-danger">( Recommend image size 255 x 200 pixel )</small>
                             <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" >
+                                <input type="file" class="custom-file-input" name="thumbnail" >
                                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                             </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Post Banner</label> <small class="text-danger">( Recommend image size 700 x 400 pixel )</small>
+                            <label>Post Banner</label> <small class="text-danger">( Recommend image size 825 x 400 pixel )</small>
                             <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" >
+                                <input type="file" class="custom-file-input" name="banner" >
                                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                             </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Post Type</label> <small class="text-danger">( Internal / External News )</small>
-                            <select class="form-control">
-                                <option value="">Internal</option>
-                                <option value="">External</option>
+                            <label>News Type</label> <small class="text-danger">( National / International News )</small>
+                            <select class="form-control" name="post_type">
+                                <option value="SPORT" selected>SPORT</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Post Categories</label>
-                            <select class="form-control">
-                                <option value="">Football</option>
-                                <option value="">Volleyball</option>
-                                <option value="">Others</option>
-                            </select>
+                            <?php
+                                if($category == "NATIONAL"){
+                                  echo '
+                                    <select class="form-control" name="category">
+                                        <option value="NATIONAL" selected>National</option>
+                                        <option value="INTERNATIONAL">International</option>
+                                        <option value="FOOTBALL">Football</option>
+                                        <option value="VOLLEYBALL">Volleyball</option>
+                                    </select>
+                                  
+                                   ';
+                                }else if($category == "INTERNATIONAL"){
+                                  echo '
+                                  <select class="form-control" name="category">
+                                      <option value="NATIONAL" >National</option>
+                                      <option value="INTERNATIONAL" selected>International</option>
+                                      <option value="FOOTBALL">Football</option>
+                                      <option value="VOLLEYBALL">Volleyball</option>
+                                  </select>
+                                
+                                 ';
+                                }else if($category == "FOOTBALL"){
+                                  echo '
+                                  <select class="form-control" name="category">
+                                      <option value="NATIONAL" >National</option>
+                                      <option value="INTERNATIONAL">International</option>
+                                      <option value="FOOTBALL" selected>Football</option>
+                                      <option value="VOLLEYBALL">Volleyball</option>
+                                  </select>
+                                
+                                 ';
+                                }else{
+                                  echo '
+                                  <select class="form-control" name="category">
+                                      <option value="NATIONAL" >National</option>
+                                      <option value="INTERNATIONAL">International</option>
+                                      <option value="FOOTBALL">Football</option>
+                                      <option value="VOLLEYBALL" selected>Volleyball</option>
+                                  </select>
+                                
+                                 ';
+                                }
+                                    
+                            ?>
+                            
                         </div>
                         <div class="form-group">
                             <label>Post Descriptions</label>
-                            <textarea class="form-control" cols="30" rows="10" placeholder="News Descriptions"></textarea>
+                            <textarea class="form-control" name="description" cols="30" rows="10" placeholder="News Descriptions"><?php  echo $description; ?></textarea>
                         </div>
                     </div>
                     <!-- /.card-body -->

@@ -225,4 +225,66 @@ function add_sport_news(){
     }
 }
 add_sport_news();
+function remove_social_news(){
+    global $con;
+    if(isset($_POST['remove_social_news'])){
+        $id = $_POST['id'];
+        $sql_delete = "DELETE FROM `tbl_social_news` WHERE id=$id";
+        $result_delete = $con->query($sql_delete);
+        if($result_delete == TRUE){
+            echo '
+            <script>
+                $(document).ready(function() {
+                    swal({
+                        title: "DELTE SUCCESSFULLY!",
+                        text: "You clicked the button!",
+                        icon: "success",
+                    });
+                });
+            </script>
+            ';
+        }
+    }
+}
+remove_social_news();
+// @edit_sport_news
+function edit_sport_news(){
+    global $con;
+    if(isset($_POST['edit_sport_news'])){
+        $id = $_POST['id'];
+        $con->set_charset("utf8");
+        date_default_timezone_set('Asia/Phnom_Penh');
+        $title= $_POST['title'];
+        $filename_thumbnail = rand(1,999999)."-".$_FILES['thumbnail']['name'];
+        
+        // echo $filename;
+        move_uploaded_file($_FILES['thumbnail']['tmp_name'],"../article/assets/image/".$filename_thumbnail);
+        $filename_banner = rand(1,999999)."-".$_FILES['banner']['name'];
+        
+        // echo $filename;
+        move_uploaded_file($_FILES['banner']['tmp_name'],"../article/assets/image/".$filename_banner);
+        $post_type = $_POST['post_type'];
+        $category = $_POST['category'];
+        $description = $_POST['description'];
+        $date = date("F j, Y, g:i a"); 
+        $sql_update = "UPDATE `tbl_social_news` SET `thumbnail`='".$filename_thumbnail."',`banner`='".$filename_banner."',`title`='".$title."',
+                                                    `date`='".$date."',`description`='".$description."',`news_type`='".$post_type."',
+                                                    `category`='".$category."' WHERE id=$id";
+        $result_update = $con->query($sql_update);
+        if($result_update == TRUE){
+            echo '
+            <script>
+                $(document).ready(function() {
+                    swal({
+                        title: "UPDATE SUCCESSFULLY!",
+                        text: "You clicked the button!",
+                        icon: "success",
+                    });
+                });
+            </script>
+            ';
+        }                                            
+    }
+}
+edit_sport_news();
 ?>

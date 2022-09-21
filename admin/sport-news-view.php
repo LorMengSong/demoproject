@@ -40,11 +40,12 @@
                         <th>News Descriptions</th>
                         <th colspan="2">Actions</th>
                       </tr>
+                     
                     </thead>
                     <tbody>
                       <?php
                           $con->set_charset("utf8");
-                          $sql_select = "SELECT * FROM `tbl_social_news` ORDER BY ID DESC";
+                          $sql_select = "SELECT * FROM `tbl_social_news` WHERE news_type='SPORT' ORDER BY ID DESC";
                           $result_select = $con->query($sql_select);
                           while($row = mysqli_fetch_assoc($result_select)){
                             echo '
@@ -60,7 +61,7 @@
                               '.$row['title'].'</td>
                               <td>'.$row['news_type'].'</td>
                               <td>'.$row['category'].'</td>
-                              <td>'.$row['category'].'</td>
+                              <td>'.$row['date'].'</td>
                               <td><img src="../article/assets/image/'.$row['thumbnail'].'" width="70px"></td>
                               <td><img src="../article/assets/image/'.$row['banner'].'" width="150px"></td>
                               <td style="overflow: hidden;
@@ -73,7 +74,11 @@
                                       -webkit-box-orient: vertical;">
                                       '.$row['description'].'</td>
                               <td>
-                                <a href="sport-news-update.php" class="btn btn-success">Edit</a> <a href="" class="btn btn-danger">Remove</a>
+                                <a href="sport-news-update.php?id='.$row['id'].'" class="btn btn-success">Edit</a> 
+                                <form action="" method="post" style="float:left; margin-right:5px">
+                                    <input type="hidden" name="id" value="'.$row['id'].'">
+                                    <input type="submit" value="remove" class="btn btn-danger" name="remove_social_news">
+                                </form>
                               </td>
                             </tr>
                             ';
