@@ -2,7 +2,21 @@
     <div class="content contact">
         <section>
             <div class="main-banner">
-                <div class="thumbnail"><img src="https://via.placeholder.com/1440x500" alt=""></div>
+            <div class="main-slide-banner">
+                <?php
+                    $sql_select = "SELECT * FROM `tbl_slide` ORDER BY id DESC";
+                    $result_select = $con->query($sql_select);
+                    while($row = mysqli_fetch_assoc($result_select)){
+                        echo '
+                        <div>
+                            <img src="assets/image/'.$row['thumbnail'].'" alt="">
+                        </div>
+                        ';
+                    }
+                
+                ?>
+                
+            </div>
             </div>
         </section>
         <section>
@@ -46,23 +60,23 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="label">Username</div>
-                                        <input type="text" class="box" placeholder="Username" required>
+                                        <input type="text" name="username" class="box" placeholder="Username" required>
                                     </div>
                                     <div class="col-6">
                                         <div class="label">Email</div>
-                                        <input type="email" class="box" placeholder="Email" required>
+                                        <input type="email" class="box" name="email" placeholder="Email" required>
                                     </div>
                                     <div class="col-6">
                                         <div class="label">Telephone</div>
-                                        <input type="tel" class="box" placeholder="Telephone" required minlength="9" maxlength="10">
+                                        <input type="tel" class="box" name="telephone" placeholder="Telephone" required minlength="9" maxlength="10">
                                     </div>
                                     <div class="col-6">
                                         <div class="label">Address</div>
-                                        <input type="text" class="box" placeholder="Address" required>
+                                        <input type="text" class="box" name="address" placeholder="Address" required>
                                     </div>
                                     <div class="col-12">
                                         <div class="label">Message</div>
-                                        <textarea cols="30" rows="10" placeholder="Message Here" required></textarea>
+                                        <textarea cols="30" rows="10" name="message" placeholder="Message Here" required></textarea>
                                     </div>
                                     <div class="col-12">
                                         <div class="wrap-btn">
@@ -78,3 +92,32 @@
         </section>
     </div>
 <?php include('footer.php'); ?>
+<?php
+    // @btn_message
+    if(isset($_POST['btn_message'])){
+        // set the default timezone to use.
+        date_default_timezone_set('Asia/Phnom_Penh');
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $phone = $_POST['telephone'];
+        $address = $_POST['address'];
+        $message = $_POST['message'];
+        $date = date("F j, Y, g:i a");      
+        $sql_insert = "INSERT INTO `tbl_feedback`(`id`, `name`, `email`, `phone`, `address`, `date`, `message`) 
+                                    VALUES (null,'".$username."','".$email."','".$phone."','".$address."','".$date."','".$message."')";
+        $result_insert = $con->query($sql_insert);
+        if($result_insert == TRUE){
+            echo '
+            <script>
+                $(document).ready(function() {
+                    swal({
+                        title: "INSERT SUCCESSFULLY!",
+                        text: "You clicked the button!",
+                        icon: "success",
+                    });
+                });
+            </script>
+            ';
+        }                            
+    }
+?>

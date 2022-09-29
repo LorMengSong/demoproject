@@ -155,13 +155,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="sport-news-view.php" class="nav-link">
+                <a href="social-news-view.php" class="nav-link">
                 <i class="fas fa-arrow-circle-right"></i>
                   <p>View Posts</p>
                 </a>
               </li> 
               <li class="nav-item">
-                <a href="sport-news-add.php" class="nav-link">
+                <a href="social-news-add.php" class="nav-link">
                 <i class="fas fa-arrow-circle-right"></i>
                   <p>Add New</p>
                 </a>
@@ -218,7 +218,7 @@
           </li>
           
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="message-from-client.php" class="nav-link">
             <i class="far fa-comment-alt"></i>
               <p>
                 Message from client
