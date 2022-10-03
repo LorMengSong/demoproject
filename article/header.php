@@ -58,7 +58,7 @@
                     <!-- @search button -->
                         <div class="search">
                             <form action="search.php" method="get">
-                                <input type="text" placeholder="Search here"><button><i class="fas fa-search"></i></button>
+                                <input type="text" name="search_query" placeholder="Search here"><button><i class="fas fa-search"></i></button>
                             </form>
                         </div>
 
@@ -92,16 +92,16 @@
 
                         <li class="nav main-sport"><a href="javascript:void(0)" class="parent">Sports</a>
                             <ul class="sub-menu-sport">
-                                <li><i class="fas fa-angle-double-right"></i> <a href="category.php"> National</a></li>
-                                <li><i class="far fa-angle-double-right"></i> <a href="category.php"> International</a></li>
-                                <li><i class="far fa-angle-double-right"></i> <a href="category.php"> Football</a></li>
-                                <li><i class="far fa-angle-double-right"></i> <a href="category.php"> Volleyball</a></li>
+                                <li><i class="fas fa-angle-double-right"></i> <a href="category.php?news_type=SPORT&&category=NATIONAL"> National</a></li>
+                                <li><i class="far fa-angle-double-right"></i> <a href="category.php?news_type=SPORT&&category=INTERNATIONAL"> International</a></li>
+                                <li><i class="far fa-angle-double-right"></i> <a href="category.php?news_type=SPORT&&category=FOOTBALL"> Football</a></li>
+                                <li><i class="far fa-angle-double-right"></i> <a href="category.php?news_type=SPORT&&category=VOLLEYBALL"> Volleyball</a></li>
                             </ul>
                         </li>    
                         <li class="nav main-social"><a href="javascript:void(0)" class="parent">Social</a>
                             <ul class="sub-menu-social">
-                                <li><i class="far fa-angle-double-right"></i> <a href="category.php"> National</a></li>
-                                <li><i class="far fa-angle-double-right"></i> <a href="category.php"> International</a></li>
+                                <li><i class="far fa-angle-double-right"></i> <a href="category.php?news_type=SOCIAL_NEWS&&category=NATIONAL"> National</a></li>
+                                <li><i class="far fa-angle-double-right"></i> <a href="category.php?news_type=SOCIAL_NEWS&&category=INTERNATIONAL"> International</a></li>
                             </ul>
                         </li>
 
