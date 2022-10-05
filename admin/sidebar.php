@@ -209,7 +209,7 @@
                 </a>
               </li> 
               <li class="nav-item">
-                <a href="sport-news-add.php" class="nav-link">
+                <a href="video-add.php" class="nav-link">
                 <i class="fas fa-arrow-circle-right"></i>
                   <p>Add New</p>
                 </a>
