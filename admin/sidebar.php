@@ -194,7 +194,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link active">
+            <a href="" class="nav-link active">
             <i class="fas fa-photo-video"></i>  
               <p>
                 VIDEO
@@ -203,7 +203,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="sport-news-view.php" class="nav-link">
+                <a href="video-view.php" class="nav-link">
                 <i class="fas fa-arrow-circle-right"></i>
                   <p>View Posts</p>
                 </a>

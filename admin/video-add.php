@@ -53,7 +53,7 @@
                     <!-- /.card-body -->
                     
                     <div class="card-footer">
-                      <button type="submit" id="add-video" name="add-video" class="btn btn-primary">Publish Post</button>
+                      <button type="button" id="add-video" name="add-video" class="btn btn-primary">Publish Post</button>
                     </div>
                   </form>
               </div>

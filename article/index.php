@@ -161,21 +161,30 @@
                 </div>
                 <div class="bottom-wrap">
                     <div class="row">
-                        <?php for($i=1; $i<=4; $i++) { ?>
-                        <div class="col-3">
-                            <figure>
-                                <a data-fancybox data-type="gellary" href="https://www.youtube.com/watch?v=kbCYLDAgGmU&list=RDkbCYLDAgGmU&start_radio=1">
-                                    <i class="far fa-play-circle"></i>
-                                    <div class="thumbnail">
-                                        <img src="https://via.placeholder.com/255x200" alt="">
-                                    </div>
-                                    <div class="detail">
-                                        <h4 class="title">Messi ​បំបែក​កំណត់​ត្រា​របស់​ Pele បាត់​ក្រោយ​ស៊ុត Hat-trick​ មុន​នេះ​</h4>
-                                    </div>
-                                </a> 
-                            </figure>
-                        </div>
-                        <?php } ?>
+                        <?php
+                            
+                            $sql_select = "SELECT * FROM `tbl_video` ORDER BY ID DESC";
+                            $result_select = $con->query($sql_select);
+                            while($row = mysqli_fetch_assoc($result_select)){
+                                echo '
+                                <div class="col-3">
+                                <figure>
+                                    <a data-fancybox data-type="gellary" href="'.$row['url'].'">
+                                        <i class="far fa-play-circle"></i>
+                                        <div class="thumbnail">
+                                            <img src="assets/image/'.$row['thumbnail'].'" alt="">
+                                        </div>
+                                        <div class="detail">
+                                            <h4 class="title">'.$row['title'].'</h4>
+                                        </div>
+                                    </a> 
+                                </figure>
+                                </div>
+                                ';
+                            }
+                        ?>
+                        
+                        
                     </div>
                 </div>
             </div>
