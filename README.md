@@ -1,3 +1,3 @@
 # demoproject
     PHP PROJECT AT ETEC CENTER
-    -> git clone 
+    -> git clone https://github.com/MengSong2003/demoproject.git
