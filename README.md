@@ -1,3 +1,3 @@
 # demoproject
-    PHP PROJECT ADD ETEC CENTER
-    :blush: git clone 
+    PHP PROJECT AT ETEC CENTER
+    -> git clone 
